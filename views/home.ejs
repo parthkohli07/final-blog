@@ -1,0 +1,49 @@
+<%- include("partials/header")-%>
+<div class="button col-6 mx-auto">
+
+    <form action="/compose" method="get">
+        <button style="background-color: #1abc9c;" type="submit" class="btn btn-lg btn-primary " >Add New Blog + </button>
+    </form>
+</div>
+
+<div class="jumbotron jumbotron-fluid  text-white rounded bg-dark container">
+    <h1 style="text-align: center; font-family: 'Playfair Display', serif;">Home</h1>
+    <p><%= startingContent %></p>
+    
+   
+        <%  posts.forEach(function(post){   %>
+            <div class="row-md-2">
+                <div class="col-md-6">
+                  <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                    <div class="card-body d-flex flex-column align-items-start">
+
+                      <h3 class="mb-0">
+                        <h2 style="font-family: 'Playfair Display', serif;color: black;margin-left: 45%;"><%= post.title%></h2>
+                      </h3>
+                      <p style="color: black;"><%= post.content.substring(0,50)+" ..." %>
+                        <%if(post.content.length>50){%>
+                
+                            <a href="/posts/<%=post._id%>">Read More</a>
+                      <%  }%>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+        <%})%>
+           
+        
+          
+   
+</div>
+
+</div>
+<div class="footer-padding"></div>
+  <div class="footer" style="position:relative;padding-top: 2px;">
+    <p>Made with ❤️
+    <a href="#">Back to Top</a>
+  </p>
+  </div>
+</div>
+</body>
+</html>
